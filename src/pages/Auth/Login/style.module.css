@@ -1,0 +1,82 @@
+:root {
+  --fontPrimary: #222222;
+  --buttonColor: #7e98df;
+  --fontSecondary: rgb(70, 135, 255);
+  --fontBorder: rgb(0, 56, 161);
+}
+
+.fluid {
+  background: linear-gradient(270.1deg, #bed0ff -11.61%, #e5d1fa 116.46%) !important;
+}
+
+.wrapperCol {
+  background-color: rgba(255, 255, 255, 0.291);
+  border-radius: 20px;
+}
+
+.btnPassword {
+  text-decoration: none;
+  font-size: 0.9em;
+  display: flex;
+  justify-content: end;
+  color: black;
+  margin-bottom: 25px;
+}
+
+.btnLogin {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--buttonColor);
+  color: white;
+}
+
+.btnLogin:hover {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--fontSecondary);
+  color: white;
+}
+
+.btnLoginSSO {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #636363;
+  border-radius: 20px;
+  background-color: transparent;
+  color: #636363;
+}
+
+.btnLoginSSO:hover {
+  width: 100%;
+  padding: 11px;
+  border: none;
+  border-radius: 20px;
+  background-color: rgba(255, 255, 255, 0.363);
+  color: #636363;
+}
+
+.wrapperTextLogin {
+  position: relative;
+}
+
+.titleSSO {
+  font-size: 0.9em;
+  font-weight: 600;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.titleRegister {
+  font-size: 0.9em;
+  text-align: center;
+  margin-top: 25px;
+}
+
+.btnRegister {
+  font-size: 0.9em;
+  text-decoration: none;
+}

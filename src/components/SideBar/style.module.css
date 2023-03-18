@@ -1,0 +1,88 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.408);
+  padding: 32px;
+  margin-bottom: 30px;
+}
+
+.navbarBrand {
+  font-size: 1.5em;
+  font-weight: 700;
+  /* line-height: 100px; */
+}
+
+.wrapperSearch {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  height: 50px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+  margin-bottom: 30px;
+}
+
+.searchInput {
+  width: 100%;
+  font-size: 0.9em;
+  padding: 10px 20px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid #8a8a8a;
+  border-radius: 4px;
+}
+
+.searchInput:focus {
+  padding: 10px 19px;
+  background-color: transparent;
+  border: 2px solid #8a8a8a;
+  outline: transparent;
+  border-radius: 4px;
+}
+
+.btnAdd {
+  font-size: 1.4em;
+  font-weight: bolder;
+}
+
+.wrapperStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.status {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.status:hover {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.195);
+}
+
+.status.active {
+  border: none;
+  border-radius: 4px;
+  padding: 6px 20px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.195);
+}
+
+.btnProfile {
+  border-radius: 4px;
+  font-size: 1.4em;
+}
+
+.dropdownMenu {
+  background-color: rgba(255, 255, 255, 0.736);
+}

@@ -1,0 +1,26 @@
+:root {
+  --fontPrimary: #222222;
+  --fontSecondary: rgb(70, 135, 255);
+  --fontBorder: rgb(0, 56, 161);
+}
+
+.formControl {
+  font-size: 0.9em !important;
+  font-weight: 600 !important;
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 10px 10px 0 0 !important;
+  border-bottom: 1px solid var(--fontBorder) !important;
+}
+
+.formControl:focus {
+  background-color: transparent !important;
+  border: none !important;
+  border-radius: 10px 10px 0 0 !important;
+  border-bottom: 1px solid var(--fontBorder) !important;
+}
+
+.formLabel {
+  font-size: 0.9em !important;
+  color: var(--fontSecondary) !important;
+}

@@ -1,0 +1,58 @@
+.colBg {
+  background: linear-gradient(270.1deg, #bed0ff -11.61%, #e5d1fa 116.46%) !important;
+  padding: 0;
+}
+
+.col {
+  border-right: 1px solid #c0c0c090;
+  padding: 0 25px;
+  overflow-y: hidden;
+}
+
+.wrapperList {
+  height: 80%;
+  overflow-y: auto;
+}
+
+/* message Content */
+
+.buttonJoin {
+  font-size: 0.9em;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin: 0 10px;
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+.buttonJoin:hover {
+  font-size: 0.9em;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin: 0 10px;
+  background-color: rgba(255, 255, 255, 0.678);
+}
+
+.buttonNewChat {
+  font-size: 0.9em;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin: 0 10px;
+  background-color: rgba(0, 124, 212, 0.24);
+}
+
+.buttonNewChat:hover {
+  font-size: 0.9em;
+  font-weight: 500;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 30px;
+  margin: 0 10px;
+  color: white;
+  background-color: rgba(0, 124, 212, 0.757);
+}

@@ -1,0 +1,41 @@
+:root {
+  --fontPrimary: #222222;
+  --buttonColor: #7e98df;
+  --fontSecondary: rgb(70, 135, 255);
+  --fontBorder: rgb(0, 56, 161);
+}
+
+.fluid {
+  background: linear-gradient(270.1deg, #bed0ff -11.61%, #e5d1fa 116.46%) !important;
+}
+
+.wrapperCol {
+  background-color: rgba(255, 255, 255, 0.291);
+  border-radius: 20px;
+}
+
+.btnLogin {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--buttonColor);
+  color: white;
+}
+
+.btnLogin:hover {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 20px;
+  background-color: var(--fontSecondary);
+  color: white;
+}
+
+.buttonBack {
+  position: absolute;
+  border: none;
+  background-color: transparent;
+  font-size: 1.4em;
+  color: var(--buttonColor);
+}
