@@ -1,8 +1,54 @@
-import React from 'react';
+import React, { useState } from 'react';
 import style from './style.module.css';
 import FormInput from '../../../components/FormInput';
+import axios from 'axios';
+import swal from 'sweetalert2';
 
 const Register = () => {
+  const [register, setRegister] = useState({
+    fullname: '',
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setRegister({
+      ...register,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, register)
+      .then((res) => {
+        if (res.data.message !== 'Login Successfull') {
+          swal.fire({
+            title: `${res.data.message}`,
+            text: `Login Failed`,
+            icon: 'error',
+          });
+        } else {
+          swal.fire({
+            title: `${res.data.message}`,
+            text: `Login Success`,
+            icon: 'success',
+          });
+          window.location.replace('/login');
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+
+  const validationPassword = () => {
+    if (register.password.length < 8) {
+      return alert('Password Must 8 Character!');
+    }
+  };
+
   return (
     <div className={`container-fluid ${style.fluid}`}>
       <div className="container">
@@ -15,15 +61,15 @@ const Register = () => {
               <h4 className="text-center mb-5 fw-bold">Register DiChat</h4>
             </div>
             <span className={style.subtitle}>Let’s create your account!</span>
-            <form className="mt-4">
-              <FormInput type="text" name="Fullname" label="Fullname" />
+            <form className="mt-4" onSubmit={handleSubmit}>
+              <FormInput id="fullname" type="text" name="fullname" label="Fullname" change={handleChange} />
 
-              <FormInput type="email" name="email" label="Email" />
+              <FormInput id="email" type="email" name="email" label="Email" change={handleChange} />
 
-              <FormInput type="password" name="password" label="Password" />
+              <FormInput id="password" type="password" name="password" label="Password" change={handleChange} />
 
-              <button type="button" className={`mt-3 ${style.btnLogin}`}>
-                Login
+              <button type="submit" className={`mt-3 ${style.btnLogin}`}>
+                Regiter
               </button>
 
               <p className={`mb-4 ${style.titleSSO}`}>Register With</p>

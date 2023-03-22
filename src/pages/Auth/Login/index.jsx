@@ -1,8 +1,46 @@
-import React from 'react';
+import React, { useState } from 'react';
 import FormInput from '../../../components/FormInput';
 import style from './style.module.css';
+import axios from 'axios';
+import swal from 'sweetalert2';
 
 const Login = () => {
+  const [login, setLogin] = useState({
+    email: '',
+    password: '',
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setLogin({
+      ...login,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, login)
+      .then((res) => {
+        if (res.data.message !== 'Login Successfull') {
+          swal.fire({
+            title: `${res.data.message}`,
+            text: `Login Failed`,
+            icon: 'error',
+          });
+        } else {
+          swal.fire({
+            title: `${res.data.message}`,
+            text: `Login Success`,
+            icon: 'success',
+          });
+          window.location.replace('/');
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <body>
       <div className={`container-fluid ${style.fluid}`}>
@@ -11,15 +49,15 @@ const Login = () => {
             <div className={`col-lg-4 col-md-6 p-5 ${style.wrapperCol}`}>
               <h4 className="text-center mb-5 fw-bold">Login DiChat</h4>
               <span className={style.subtitle}>Hi, Welcome back!</span>
-              <form className="mt-4">
-                <FormInput type="email" name="email" label="Email" />
-                <FormInput type="password" name="password" label="password" />
+              <form className="mt-4" onSubmit={handleSubmit}>
+                <FormInput type="email" name="email" label="Email" change={handleChange} />
+                <FormInput type="password" name="password" label="password" change={handleChange} />
 
                 <a href="/forgotPassword" className={style.btnPassword}>
                   Forgot Password ?
                 </a>
 
-                <button type="button" className={style.btnLogin}>
+                <button type="submit" className={style.btnLogin}>
                   Login
                 </button>
 
