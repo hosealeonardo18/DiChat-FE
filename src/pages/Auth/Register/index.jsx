@@ -25,7 +25,7 @@ const Register = () => {
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, register)
       .then((res) => {
-        if (res.data.message !== 'Login Successfull') {
+        if (res.data.message !== 'Register Successfull!') {
           swal.fire({
             title: `${res.data.message}`,
             text: `Login Failed`,
@@ -41,12 +41,6 @@ const Register = () => {
         }
       })
       .catch((err) => console.log(err));
-  };
-
-  const validationPassword = () => {
-    if (register.password.length < 8) {
-      return alert('Password Must 8 Character!');
-    }
   };
 
   return (

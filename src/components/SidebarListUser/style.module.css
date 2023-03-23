@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.408);
-  padding: 36px;
+  padding: 32px;
   margin-bottom: 30px;
 }
 
@@ -11,6 +11,16 @@
   font-size: 1.5em;
   font-weight: 700;
   /* line-height: 100px; */
+}
+
+.navbarBrand a {
+  text-decoration: none;
+  color: black;
+}
+
+.navbarBrand a:hover {
+  text-decoration: none;
+  color: black;
 }
 
 .wrapperSearch {

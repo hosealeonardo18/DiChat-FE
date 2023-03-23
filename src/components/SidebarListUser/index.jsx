@@ -1,13 +1,16 @@
 import React from 'react';
 import style from './style.module.css';
-import ListMessage from '../CardListMessage';
 import img from '../../assets/images/formal.png';
+import CardListContact from '../CardListContact';
 
-const Sidebar = () => {
+const SidebarListUser = () => {
   return (
     <>
       <div className={`${style.navbar}`}>
-        <div className={style.navbarBrand}>DiChat</div>
+        <div className={style.navbarBrand}>
+          <a href="/chat">DiChat</a>
+        </div>
+
         <div className="btn-group">
           <button type="button" className={`btn ${style.btnProfile}`} data-bs-toggle="dropdown" aria-expanded="false">
             <i className="bi bi-sliders2" />
@@ -46,7 +49,7 @@ const Sidebar = () => {
                 </button>
                 <ul className={`dropdown-menu mt-2 ${style.dropdownMenu}`}>
                   <li>
-                    <a className="dropdown-item" href="/adduser">
+                    <a className="dropdown-item" href="#">
                       Add User
                     </a>
                   </li>
@@ -56,13 +59,11 @@ const Sidebar = () => {
 
             {/* status message */}
             <div className={style.wrapperStatus}>
-              <button className={`${style.status} ${style.active}`}>All</button>
-              <button className={`${style.status}`}>Important</button>
-              <button className={`${style.status}`}>Unread</button>
+              <button className={`${style.status} ${style.active}`}>All Users</button>
             </div>
 
             <div className={style.wrapperList}>
-              <ListMessage image={img} name="Hosea Leonardo" message="Hi!, How are you ? i'm miss u somuch" time="12:00" counter={0} read={true} connect={true} id={1} />
+              <CardListContact image={img} name="Hosea Leonardo" message="Hi!, How are you ? i'm miss u somuch" time="12:00" counter={0} read={true} connect={true} id={1} />
             </div>
           </div>
         </div>
@@ -72,4 +73,4 @@ const Sidebar = () => {
   );
 };
 
-export default Sidebar;
+export default SidebarListUser;

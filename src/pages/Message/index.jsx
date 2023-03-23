@@ -32,6 +32,7 @@ const Message = () => {
                 </button>
               </div>
             </div>
+
             <div className={style.mainContent}>
               <ul className={style.listsMessageEx}>
                 {/* sender */}
@@ -53,27 +54,6 @@ const Message = () => {
                       Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut velit, at quia optio dolorem atque debitis, dolor voluptate a corporis beatae officia minima recusandae veritatis tenetur veniam similique minus dolore,
                       necessitatibus expedita in architecto. Enim amet perferendis minus ipsa consequuntur molestiae incidunt earum ex tempore.
                     </span>
-                    <p className={`text-end mb-0 ${style.timeMessage}`}>12:00</p>
-                  </div>
-                  <img src={img} alt="" className={style.imageDetail} />
-                </li>
-
-                {/* sender */}
-                <li className={style.listMessageEx}>
-                  <img src={img} alt="" className={style.imageDetail} />
-                  <div className={style.wrapperCard}>
-                    <span className={style.messageEx}>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia veniam expedita voluptatem quaerat consectetur ea quibusdam neque adipisci eius, libero iste debitis fugit nam! Accusamus aspernatur modi explicabo
-                      aliquid? Optio, dignissimos iste. Itaque reprehenderit nostrum laudantium aut ad dolor nihil optio. Maxime at quo rerum alias. Nam, iure. Et, voluptate.
-                    </span>
-                    <p className={`text-end mb-0 ${style.timeMessage}`}>12:00</p>
-                  </div>
-                </li>
-
-                {/* me */}
-                <li className={style.listMessageMe}>
-                  <div className={style.wrapperCardMe}>
-                    <span className={style.messageEx}>Lorem ipsum, dolor sit amet consectetur adipisicing</span>
                     <p className={`text-end mb-0 ${style.timeMessage}`}>12:00</p>
                   </div>
                   <img src={img} alt="" className={style.imageDetail} />

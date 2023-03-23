@@ -36,7 +36,11 @@ const Login = () => {
             text: `Login Success`,
             icon: 'success',
           });
-          window.location.replace('/');
+
+          localStorage.setItem('token', res.data.data.token);
+          localStorage.setItem('id', res.data.data._id);
+          localStorage.setItem('fullname', res.data.data.fullname);
+          window.location.replace('/chat');
         }
       })
       .catch((err) => console.log(err));
