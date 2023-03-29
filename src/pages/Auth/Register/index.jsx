@@ -23,7 +23,7 @@ const Register = () => {
     e.preventDefault();
 
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/auth/register`, register)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/user/auth/register`, register)
       .then((res) => {
         if (res.data.message !== 'Register Successfull!') {
           swal.fire({

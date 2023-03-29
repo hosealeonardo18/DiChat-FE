@@ -1,9 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import style from './style.module.css';
 import ListMessage from '../CardListMessage';
-import img from '../../assets/images/formal.png';
+import axios from 'axios';
 
 const Sidebar = () => {
+  const [userContact, setUserContact] = useState([]);
+  const token = localStorage.getItem('token');
+
+  useEffect(() => {
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/contact`, { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => {
+        console.log(res.data.data);
+        setUserContact(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [token]);
+
   return (
     <>
       <div className={`${style.navbar}`}>
@@ -62,7 +77,9 @@ const Sidebar = () => {
             </div>
 
             <div className={style.wrapperList}>
-              <ListMessage image={img} name="Hosea Leonardo" message="Hi!, How are you ? i'm miss u somuch" time="12:00" counter={0} read={true} connect={true} id={1} />
+              {userContact?.map((data) => (
+                <ListMessage image={data.image} name={data.fullname} message="Hi!, How are you ? i'm miss u somuch" time="12:00" counter={0} read={true} connect={true} id={data.id_people} />
+              ))}
             </div>
           </div>
         </div>

@@ -1,9 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Sidebar from '../../components/SideBar';
 import style from './style.module.css';
-import img from '../../assets/images/formal.png';
+import { useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const Message = () => {
+  const { id } = useParams();
+  const idSender = localStorage.getItem('id');
+  const token = localStorage.getItem('token');
+  const image = localStorage.getItem('image');
+  const [detailProfile, setDetailProfile] = useState([]);
+  const [messages, setMessages] = useState([]);
+  const [message, setMessage] = useState({
+    message: '',
+  });
+
+  // change input
+  const handleChangeMessage = (e) => {
+    setMessage({
+      ...message,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  // create Message
+  const handleCreateMessage = (e) => {
+    e.preventDefault();
+
+    if (!message.message) {
+    } else {
+      axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/message/${id}`, message, { headers: { Authorization: `Bearer ${token}` } })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
+    }
+  };
+
+  useEffect(() => {
+    // get detail user
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/user/${id}`)
+      .then((res) => {
+        setDetailProfile(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    // get message
+    axios
+      .get(`${process.env.REACT_APP_BACKEND_URL}/message/${id}`, { headers: { Authorization: `Bearer ${token}` } })
+      .then((res) => {
+        setMessages(res.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [id]);
+
   return (
     <body className={style.colBg}>
       <div className="container-fluid vh-100">
@@ -16,9 +72,9 @@ const Message = () => {
           <div className="col-md-9 p-0">
             <div className={style.navbar}>
               <div className={style.wrapperDetail}>
-                <img src={img} alt="" className={style.imageDetail} />
+                <img src={detailProfile.image} alt="" className={style.imageDetail} />
                 <div className={style.wrapperName}>
-                  <p className={style.titleName}>Hosea Leonardo</p>
+                  <p className={style.titleName}>{detailProfile.fullname}</p>
                   <span className={style.statusDetail}>Online</span>
                 </div>
               </div>
@@ -36,35 +92,42 @@ const Message = () => {
             <div className={style.mainContent}>
               <ul className={style.listsMessageEx}>
                 {/* sender */}
-                <li className={style.listMessageEx}>
-                  <img src={img} alt="" className={style.imageDetail} />
-                  <div className={style.wrapperCard}>
-                    <span className={style.messageEx}>
-                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Mollitia veniam expedita voluptatem quaerat consectetur ea quibusdam neque adipisci eius, libero iste debitis fugit nam! Accusamus aspernatur modi explicabo
-                      aliquid? Optio, dignissimos iste. Itaque reprehenderit nostrum laudantium aut ad dolor nihil optio. Maxime at quo rerum alias. Nam, iure. Et, voluptate.
-                    </span>
-                    <p className={`text-end mb-0 ${style.timeMessage}`}>12:00</p>
-                  </div>
-                </li>
+                {messages?.map((data) => {
+                  if (data.id_sender == idSender) {
+                    return (
+                      <li className={style.listMessageMe}>
+                        <div className={style.wrapperCardMe}>
+                          <span className={style.messageEx}>{data.message}</span>
+                          <hr className="my-2" />
+                          <p className={`mt-1 text-end mb-0 ${style.timeMessage}`}>{data.created_at}</p>
+                        </div>
+                        <img src={image} alt="img" className={style.imageDetail} />
+                      </li>
+                    );
+                  } else {
+                    return (
+                      <li className={style.listMessageEx}>
+                        <img src={detailProfile.image} alt="img" className={style.imageDetail} />
+                        <div className={style.wrapperCard}>
+                          <span className={style.messageEx}>{data.message}</span>
+                          <hr className="my-2" />
+                          <p className={`mt-1 text-end mb-0 ${style.timeMessage}`}>{data.created_at}</p>
+                        </div>
+                      </li>
+                    );
+                  }
+                })}
 
                 {/* me */}
-                <li className={style.listMessageMe}>
-                  <div className={style.wrapperCardMe}>
-                    <span className={style.messageEx}>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut velit, at quia optio dolorem atque debitis, dolor voluptate a corporis beatae officia minima recusandae veritatis tenetur veniam similique minus dolore,
-                      necessitatibus expedita in architecto. Enim amet perferendis minus ipsa consequuntur molestiae incidunt earum ex tempore.
-                    </span>
-                    <p className={`text-end mb-0 ${style.timeMessage}`}>12:00</p>
-                  </div>
-                  <img src={img} alt="" className={style.imageDetail} />
-                </li>
               </ul>
             </div>
             <div className={style.footerMain}>
-              <input className={style.inputMessage} type="text" placeholder="Type a message  " />
-              <button type="submit" className={style.buttonSend}>
-                <i className="bi bi-send" />
-              </button>
+              <form onSubmit={handleCreateMessage}>
+                <input className={style.inputMessage} type="text" placeholder="Type a message" name="message" value={message.message} onChange={handleChangeMessage} />
+                <button type="submit" className={style.buttonSend}>
+                  <i className="bi bi-send" />
+                </button>
+              </form>
             </div>
           </div>
         </div>

@@ -22,7 +22,7 @@ const Login = () => {
     e.preventDefault();
 
     axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`, login)
+      .post(`${process.env.REACT_APP_BACKEND_URL}/user/auth/login`, login)
       .then((res) => {
         if (res.data.message !== 'Login Successfull') {
           swal.fire({
@@ -38,8 +38,9 @@ const Login = () => {
           });
 
           localStorage.setItem('token', res.data.data.token);
-          localStorage.setItem('id', res.data.data._id);
+          localStorage.setItem('id', res.data.data.id);
           localStorage.setItem('fullname', res.data.data.fullname);
+          localStorage.setItem('image', res.data.data.image);
           window.location.replace('/chat');
         }
       })
