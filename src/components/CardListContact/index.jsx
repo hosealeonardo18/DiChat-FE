@@ -3,8 +3,10 @@ import { Link } from 'react-router-dom';
 import style from './style.module.css';
 import axios from 'axios';
 import swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
 
 const CardListContact = (props) => {
+  const dispatch = useDispatch();
   const [contact, setContact] = useState([]);
   const id = localStorage.getItem('id');
   const token = localStorage.getItem('token');

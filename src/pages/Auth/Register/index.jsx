@@ -3,8 +3,13 @@ import style from './style.module.css';
 import FormInput from '../../../components/FormInput';
 import axios from 'axios';
 import swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
+import { useUserRegisterMutation } from '../../../features/auth/authApi';
+import { setCredentials } from '../../../redux/reducer/authSlice';
 
 const Register = () => {
+  const dispatch = useDispatch();
+  const [userRegister, { isLoading, isError, isSuccess, error }] = useUserRegisterMutation();
   const [register, setRegister] = useState({
     fullname: '',
     email: '',
@@ -19,21 +24,21 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/user/auth/register`, register)
-      .then((res) => {
-        if (res.data.message !== 'Register Successfull!') {
+    await userRegister(register)
+      .then((response) => {
+        console.log(response);
+        if (response.data.message !== 'Register Users Success!') {
           swal.fire({
-            title: `${res.data.message}`,
+            title: `${response.data.message}`,
             text: `Login Failed`,
             icon: 'error',
           });
         } else {
           swal.fire({
-            title: `${res.data.message}`,
+            title: `${response.data.message}`,
             text: `Login Success`,
             icon: 'success',
           });

@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import FormInput from '../../../components/FormInput';
 import style from './style.module.css';
-import axios from 'axios';
 import swal from 'sweetalert2';
+import { useDispatch } from 'react-redux';
+import { useUserLoginMutation } from '../../../features/auth/authApi';
+import { setCredentials } from '../../../redux/reducer/authSlice';
 
 const Login = () => {
+  const dispatch = useDispatch();
+  const [userLogin, { isLoading, isError, isSuccess, error }] = useUserLoginMutation();
+
   const [login, setLogin] = useState({
     email: '',
     password: '',
@@ -18,29 +23,27 @@ const Login = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    axios
-      .post(`${process.env.REACT_APP_BACKEND_URL}/user/auth/login`, login)
-      .then((res) => {
-        if (res.data.message !== 'Login Successfull') {
+    await userLogin(login)
+      .then((response) => {
+        const { token, refreshToken, ...user } = response.data.data;
+        dispatch(setCredentials({ user: user, token: response?.data?.data?.token }));
+
+        if (response.data.message !== 'Login Successfull') {
           swal.fire({
-            title: `${res.data.message}`,
+            title: `${response.data.message}`,
             text: `Login Failed`,
             icon: 'error',
           });
         } else {
           swal.fire({
-            title: `${res.data.message}`,
+            title: `${response.data.message}`,
             text: `Login Success`,
             icon: 'success',
           });
-
-          localStorage.setItem('token', res.data.data.token);
-          localStorage.setItem('id', res.data.data.id);
-          localStorage.setItem('fullname', res.data.data.fullname);
-          localStorage.setItem('image', res.data.data.image);
+          localStorage.setItem('id', response.data.data.id);
           window.location.replace('/chat');
         }
       })

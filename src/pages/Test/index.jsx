@@ -9,7 +9,7 @@ const Test = () => {
   const [user, setUser] = useState([]);
 
   useEffect(() => {
-    const resultSocket = io('http://localhost:4000');
+    const resultSocket = io(process.env.REACT_APP_BACKEND_URL);
     setSocket(resultSocket);
     resultSocket.on('messageBe', (data) => {
       setMessages((currentData) => [...currentData, data]);
