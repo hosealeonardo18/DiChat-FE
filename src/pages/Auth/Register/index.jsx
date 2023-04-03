@@ -27,10 +27,10 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    await userRegister(register)
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/user/auth/register`, register)
       .then((response) => {
-        console.log(response);
-        if (response.data.message !== 'Register Users Success!') {
+        if (response.data.message !== 'Login Successfull') {
           swal.fire({
             title: `${response.data.message}`,
             text: `Login Failed`,
@@ -42,10 +42,30 @@ const Register = () => {
             text: `Login Success`,
             icon: 'success',
           });
-          window.location.replace('/login');
+          window.location.replace('/user/auth/login');
         }
       })
       .catch((err) => console.log(err));
+
+    // await userRegister(register)
+    //   .then((response) => {
+    //     console.log(response);
+    //     if (response.data.message !== 'Register Users Success!') {
+    //       swal.fire({
+    //         title: `${response.data.message}`,
+    //         text: `Login Failed`,
+    //         icon: 'error',
+    //       });
+    //     } else {
+    //       swal.fire({
+    //         title: `${response.data.message}`,
+    //         text: `Login Success`,
+    //         icon: 'success',
+    //       });
+    //       window.location.replace('/login');
+    //     }
+    //   })
+    //   .catch((err) => console.log(err));
   };
 
   return (

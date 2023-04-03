@@ -13,6 +13,7 @@ const ListMessage = (props) => {
       <ul className={style.listsCard}>
         <li>
           <Link to={`/message/${props.id}`} className={style.listMessage}>
+            {/* <Link to={`/template/chat/${props.id}`} className={style.listMessage}> */}
             <div className={style.wrapper}>
               <img src={props.image} alt="img" className={style.imgMessage} />
             </div>

@@ -46,19 +46,19 @@ const Message = () => {
 
     if (!message.message) {
     } else {
-      await createMessage(message, id)
-        .then((res) => {
-          const { token, refreshToken, ...user } = res.data.data;
-          dispatch(setCredentials({ user: user, token: res?.data?.data?.token }));
-          console.log(res);
-        })
-        .catch((err) => console.log(err));
-      // axios
-      //   .post(`${process.env.REACT_APP_BACKEND_URL}/message/${id}`, message, { headers: { Authorization: `Bearer ${token}` } })
+      // await createMessage(message, id)
       //   .then((res) => {
+      //     const { token, refreshToken, ...user } = res.data.data;
+      //     dispatch(setCredentials({ user: user, token: res?.data?.data?.token }));
       //     console.log(res);
       //   })
       //   .catch((err) => console.log(err));
+      axios
+        .post(`${process.env.REACT_APP_BACKEND_URL}/message/${id}`, message, { headers: { Authorization: `Bearer ${token}` } })
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((err) => console.log(err));
     }
 
     socket.emit('sendMessage', { id_sender: idSender, id_receiver: id, message: message?.message, created_at: current });

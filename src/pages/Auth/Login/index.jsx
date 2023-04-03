@@ -5,6 +5,7 @@ import swal from 'sweetalert2';
 import { useDispatch } from 'react-redux';
 import { useUserLoginMutation } from '../../../features/auth/authApi';
 import { setCredentials } from '../../../redux/reducer/authSlice';
+import axios from 'axios';
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -25,12 +26,9 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    await userLogin(login)
+    axios
+      .post(`${process.env.REACT_APP_BACKEND_URL}/user/auth/login`, login)
       .then((response) => {
-        const { token, refreshToken, ...user } = response.data.data;
-        dispatch(setCredentials({ user: user, token: response?.data?.data?.token }));
-
         if (response.data.message !== 'Login Successfull') {
           swal.fire({
             title: `${response.data.message}`,
@@ -44,10 +42,33 @@ const Login = () => {
             icon: 'success',
           });
           localStorage.setItem('id', response.data.data.id);
+          localStorage.setItem('token', response.data.data.token);
           window.location.replace('/chat');
         }
       })
       .catch((err) => console.log(err));
+    // await userLogin(login)
+    //   .then((response) => {
+    //     const { token, refreshToken, ...user } = response.data.data;
+    //     dispatch(setCredentials({ user: user, token: response?.data?.data?.token }));
+
+    //     if (response.data.message !== 'Login Successfull') {
+    //       swal.fire({
+    //         title: `${response.data.message}`,
+    //         text: `Login Failed`,
+    //         icon: 'error',
+    //       });
+    //     } else {
+    //       swal.fire({
+    //         title: `${response.data.message}`,
+    //         text: `Login Success`,
+    //         icon: 'success',
+    //       });
+    //       localStorage.setItem('id', response.data.data.id);
+    //       window.location.replace('/chat');
+    //     }
+    //   })
+    //   .catch((err) => console.log(err));
   };
   return (
     <body>
