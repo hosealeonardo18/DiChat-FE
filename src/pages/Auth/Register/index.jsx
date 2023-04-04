@@ -30,7 +30,7 @@ const Register = () => {
     axios
       .post(`${process.env.REACT_APP_BACKEND_URL}/user/auth/register`, register)
       .then((response) => {
-        if (response.data.message !== 'Login Successfull') {
+        if (response.data.message !== 'Register Users Success!') {
           swal.fire({
             title: `${response.data.message}`,
             text: `Login Failed`,
@@ -42,7 +42,7 @@ const Register = () => {
             text: `Login Success`,
             icon: 'success',
           });
-          window.location.replace('/user/auth/login');
+          window.location.replace('/login');
         }
       })
       .catch((err) => console.log(err));

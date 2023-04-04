@@ -1,0 +1,149 @@
+.leftContent {
+  width: 39%;
+  height: 100vh;
+  background: linear-gradient(270.1deg, #bed0ff -11.61%, #e5d1fa 116.46%) !important;
+  border-right: 1px solid #9d9d9d41;
+}
+
+.navBarLeft {
+  background-color: white;
+  padding: 20px;
+}
+
+.navLeft {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navBrand {
+  text-decoration: none;
+  color: var(--fontSecondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.buttonSetting {
+  border: none;
+  background-color: transparent;
+  color: var(--fontPrimary);
+  font-size: 1.3rem;
+}
+
+.navBrand:hover {
+  text-decoration: none;
+  color: var(--fontSecondary);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.row {
+  margin-top: 20px;
+}
+
+.wrapperList {
+  padding: 0 20px;
+  height: 72%;
+  overflow-y: auto;
+}
+
+.wrapperSearch {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0;
+}
+
+.searchInput {
+  width: 100%;
+  font-size: 0.9rem;
+  padding: 8px 20px !important;
+  background-color: transparent;
+  border: 1px solid #8a8a8a;
+  border-radius: 4px;
+}
+
+.searchInput:focus {
+  padding: 7px 20px !important;
+  background-color: transparent;
+  border: 2px solid #8a8a8a;
+  outline: transparent;
+  border-radius: 4px;
+}
+
+.btnProfile {
+  border: none;
+  background-color: transparent;
+}
+
+.btnAdd {
+  font-size: 1.4em;
+  font-weight: bolder;
+}
+
+.list {
+  font-size: 0.8rem;
+}
+.wrapperStatus {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.status {
+  border: none;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-weight: 500;
+  background-color: transparent;
+}
+
+.status:hover {
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.534);
+}
+
+.status.active {
+  border: none;
+  border-radius: 4px;
+  font-weight: 500;
+  background-color: rgba(255, 255, 255, 0.534);
+}
+
+.imageProfile {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.notelp {
+  font-size: 0.9rem;
+  color: rgb(133, 132, 132);
+}
+
+.status {
+  font-size: 0.9rem;
+  color: #3f3f3f;
+  margin-top: 20px;
+}
+
+.btnLogout {
+  border: none;
+  background-color: rgb(252, 114, 114);
+  color: white;
+  border-radius: 4px;
+  padding: 8px 20px;
+}
+
+.btnUpdate {
+  font-size: 1.2rem;
+  border: none;
+  background-color: transparent;
+  color: green;
+  margin-top: 20px;
+}
