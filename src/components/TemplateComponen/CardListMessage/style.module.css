@@ -77,3 +77,20 @@
 .iconRead {
   color: rgb(0, 90, 180);
 }
+
+.cardList {
+  text-decoration: none;
+  color: rgb(52, 52, 52);
+}
+
+.wrapperName {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttonDelete {
+  border: none;
+  background-color: transparent;
+}

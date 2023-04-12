@@ -10,7 +10,7 @@ const CardListContact = (props) => {
   const [contact, setContact] = useState([]);
   const id = localStorage.getItem('id');
   const token = localStorage.getItem('token');
-
+  console.log(contact);
   useEffect(() => {
     axios
       .get(`${process.env.REACT_APP_BACKEND_URL}/user`)
@@ -44,13 +44,9 @@ const CardListContact = (props) => {
         } else {
           swal.fire({
             title: `${res.data.message}`,
-            text: `Login Success`,
+            text: `Contact Added!`,
             icon: 'success',
           });
-          localStorage.setItem('token', res.data.data.token);
-          localStorage.setItem('id', res.data.data.id);
-          localStorage.setItem('fullname', res.data.data.fullname);
-          window.location.replace('/chat');
         }
       })
       .catch((err) => console.log(err));
@@ -63,7 +59,7 @@ const CardListContact = (props) => {
             return (
               <li className={`mb-3 ${style.listMessage}`}>
                 <div className={style.wrapper}>
-                  <img src={props.image} alt="img" className={style.imgMessage} />
+                  <img src={data.image} alt="img" className={style.imgMessage} />
                 </div>
 
                 <div className={style.wrapperName}>

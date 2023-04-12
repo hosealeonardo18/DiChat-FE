@@ -78,7 +78,7 @@ const Sidebar = () => {
 
             <div className={style.wrapperList}>
               {userContact?.map((data) => (
-                <ListMessage image={data.image} name={data.fullname} message="Hi!, How are you ? i'm miss u somuch" time="12:00" counter={0} read={true} connect={true} id={data.id_people} />
+                <ListMessage image={data?.image} name={data?.fullname} message="Hi!, How are you ? i'm miss u somuch" time="12:00" counter={0} read={true} connect={true} id={data.id_people} />
               ))}
             </div>
           </div>

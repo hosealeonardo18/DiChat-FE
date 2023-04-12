@@ -93,7 +93,7 @@ const SideBarTemplate = ({ contact, data }) => {
 
       <div className={style.wrapperList}>
         {contact?.map((data) => (
-          <ListMessage image={data.image} name={data.fullname} counter={0} read={true} connect={true} id={data.id_people} />
+          <ListMessage image={data.image} name={data.fullname} counter={0} read={true} connect={true} id={data.id_people} id_contact={data.id} />
         ))}
       </div>
     </div>
