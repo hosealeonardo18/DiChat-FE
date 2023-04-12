@@ -3,6 +3,7 @@ import style from './style.module.css';
 import ListMessage from '../CardListMessage';
 import Swal from 'sweetalert2';
 import ModalUpdateProfile from '../../ModalUpdateProfile';
+import image from '../../../assets/images/default.png';
 
 const SideBarTemplate = ({ contact, data }) => {
   const handleLogout = () => {
@@ -45,7 +46,7 @@ const SideBarTemplate = ({ contact, data }) => {
               </div>
               <div className="offcanvas-body text-center">
                 <div className="wrapper">
-                  <img className={style.imageProfile} src={data?.image} alt="profile" />
+                  <img className={style.imageProfile} src={data?.image?.length < 1 ? image : data?.image} alt="profile" />
                 </div>
 
                 <button type="button" className={style.btnUpdate} data-bs-toggle="modal" data-bs-target={`#update${data?.id}`}>
