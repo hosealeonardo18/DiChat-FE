@@ -8,10 +8,6 @@
     <a href="https://github.com/hosealeonardo18/DiChat-FE"><strong>Explore the docs »</strong></a>
     <br />
     <a href="https://dichat.vercel.app/">View Demo</a>
-    ·
-    <a href="">Report Bug</a>
-    ·
-    <a href="">Request Feature</a>
   </p>
 </p>
 
