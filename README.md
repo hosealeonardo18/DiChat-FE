@@ -1,70 +1,143 @@
-# Getting Started with Create React App
+<br />
+<p align="center">
+<div align="center">
+  <img height="150" <img src="https://res.cloudinary.com/dklpoff31/image/upload/v1681702183/Asset_1_pwbeti.png" alt="logo" border="0"/>
+</div>
+  <h3 align="center">DiChat</h3>
+  <p align="center">
+    <a href="https://github.com/hosealeonardo18/DiChat-FE"><strong>Explore the docs »</strong></a>
+    <br />
+    <a href="https://dichat.vercel.app/">View Demo</a>
+    ·
+    <a href="">Report Bug</a>
+    ·
+    <a href="">Request Feature</a>
+  </p>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<!-- TABLE OF CONTENTS -->
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Table of Contents](#table-of-contents)
+- [About The Project](#about-the-project)
+  - [Built With](#built-with)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+  - [Setup .env](#setup-env)
+- [Screenshots](#screenshots)
+- [Contributing](#contributing)
+- [Related Project](#related-project)
+- [Contact](#contact)
 
-### `npm start`
+<!-- ABOUT THE PROJECT -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## About The Project
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Website Realtime Chat dengan nama DiChat adalah sebuah platform online yang memungkinkan pengguna untuk melakukan obrolan secara real-time dengan pengguna lain yang terhubung dalam aplikasi tersebut. DiChat dikembangkan dengan menggunakan teknologi frontend React.js dan Redux untuk mengoptimalkan performa dan efisiensi tampilan serta pengelolaan state. Selain itu, website ini menggunakan library socket.io untuk mengimplementasikan fitur realtime chat.
 
-### `npm test`
+Pada bagian backend, DiChat menggunakan teknologi Express.js yang berfungsi sebagai server untuk mengelola data yang diambil dari Cloudinary. Cloudinary berfungsi sebagai penyimpan data gambar sehingga memungkinkan pengguna untuk dengan mudah mengirim dan melihat gambar dari setiap pesan yang dikirimkan. 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- [Redux](https://redux.js.org/)
+- [Bootstrap Css](https://getbootstrap.com/)
+- [React js](https://reactjs.org/)
+- [Cloudinary](https://cloudinary.com/)
+- and other
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+<!-- GETTING STARTED -->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
 
-### `npm run eject`
+### Prerequisites
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+This is an example of how to list things you need to use the software and how to install them.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- [nodejs](https://nodejs.org/en/download/)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Clone This Front End Repo
 
-## Learn More
+```
+git clone https://github.com/hosealeonardo18/DiChat-FE
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Go To Folder Repo
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+cd DiChat-FE
+```
 
-### Code Splitting
+- Install Module
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```
+npm install
+```
 
-### Analyzing the Bundle Size
+- <a href="#setup-env">Setup .env</a>
+- Type ` npm run dev` To Start Website
+- Type ` npm run production` To Start Production
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Setup .env
 
-### Making a Progressive Web App
+Create .env file in your root project folder.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+```
+REACT_APP_BACKEND = [BACKEND_URL]
+```
 
-### Advanced Configuration
+<!-- ROADMAP -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Screenshots
 
-### Deployment
+<table>
+ <tr>
+    <td><img width="350px" src="https://res.cloudinary.com/dklpoff31/image/upload/v1681701637/Screenshot_2023-04-12_211417_zofrsu.png" border="0" alt="1" /></td>
+    <td> <img width="350px" src="https://res.cloudinary.com/dklpoff31/image/upload/v1681701726/Screenshot_2023-04-17_102153_i7frzq.png"  border="0"  alt="2" /></td>
+  </tr>
+   <tr>
+    <td>Login</td>
+    <td>Register</td>
+  </tr>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  <tr>
+    <td><img width="350px"  src="https://res.cloudinary.com/dklpoff31/image/upload/v1681701604/Screenshot_2023-04-17_084650_vpgewq.png" border="0" alt="3" /> </td>
+     <td><img width="350px"  src="https://res.cloudinary.com/dklpoff31/image/upload/v1681701604/Screenshot_2023-04-17_084229_flxuzk.png"  border="0" alt="4" /></td>
+  </tr>
+   <tr>
+    <td>Home Page</td>
+     <td>Room Chat</td>
+  </tr>
+  <tr>
+    <td><img width="350px"  src="https://res.cloudinary.com/dklpoff31/image/upload/v1681701866/Screenshot_2023-04-17_102356_xcswx3.png" border="0" alt="3" /> </td>
+     <td><img width="350px"  src="https://res.cloudinary.com/dklpoff31/image/upload/v1681701935/Screenshot_2023-04-17_102525_xwj6jm.png"  border="0" alt="4" /></td>
+  </tr>
+   <tr>
+    <td>Delete Contact</td>
+     <td>Add Contact</td>
+  </tr>
+</table>
 
-### `npm run build` fails to minify
+<!-- CONTRIBUTING -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## Related Project
+
+:rocket: [`Backend DiChat Realtime Chat`](https://github.com/hosealeonardo18/DiChat-BE)
+
+:rocket: [`Frontend DiChat Realtime Chat`](https://github.com/hosealeonardo18/DiChat-FE)
+
+:rocket: [`Demo DiChat Realtime Chat`](https://dichat.vercel.app/)
