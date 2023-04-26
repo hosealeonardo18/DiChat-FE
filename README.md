@@ -15,9 +15,9 @@
 
 ## About The Project
 
-Website Realtime Chat dengan nama DiChat adalah sebuah platform online yang memungkinkan pengguna untuk melakukan obrolan secara real-time dengan pengguna lain yang terhubung dalam aplikasi tersebut. DiChat dikembangkan dengan menggunakan teknologi frontend React.js dan Redux untuk mengoptimalkan performa dan efisiensi tampilan serta pengelolaan state. Selain itu, website ini menggunakan library socket.io untuk mengimplementasikan fitur realtime chat.
+The Realtime Chat website with the name DiChat is an online platform that allows users to chat in real-time with other users who are connected to the application. DiChat was developed using React.js and Redux frontend technologies to optimize display performance and efficiency as well as state management. In addition, this website uses the socket.io library to implement the realtime chat feature.
 
-Pada bagian backend, DiChat menggunakan teknologi Express.js yang berfungsi sebagai server untuk mengelola data yang diambil dari Cloudinary. Cloudinary berfungsi sebagai penyimpan data gambar sehingga memungkinkan pengguna untuk dengan mudah mengirim dan melihat gambar dari setiap pesan yang dikirimkan. 
+On the backend, DiChat uses Express.js technology which functions as a server to manage data retrieved from Cloudinary. Cloudinary functions as an image data store so that it allows users to easily send and view images from every message sent.
 
 
 ### Built With
