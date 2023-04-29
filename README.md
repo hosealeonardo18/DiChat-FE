@@ -100,6 +100,13 @@ REACT_APP_BACKEND = [BACKEND_URL]
     <td>Delete Contact</td>
      <td>Add Contact</td>
   </tr>
+  
+  <tr>
+    <td><img width="350px"  src="https://res.cloudinary.com/dklpoff31/image/upload/v1682789080/Screenshot_2023-04-30_002209_l1gouk.png" border="0" alt="3" /> </td>
+   </tr>
+   <tr>
+    <td>Profile</td>
+  </tr>
 </table>
 
 <!-- CONTRIBUTING -->
